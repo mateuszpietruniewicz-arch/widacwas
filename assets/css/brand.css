@@ -1,5 +1,13 @@
 /* WidaćWas brand overrides — logo placement + brand colors (navy / cyan from logo) */
 
+/* Hero background photo with dark overlay for text legibility */
+#banner {
+	background-image: linear-gradient(rgba(19, 36, 80, 0.45), rgba(19, 36, 80, 0.6)), url('../../images/hero.jpg');
+	background-size: cover;
+	background-position: center 30%;
+	background-repeat: no-repeat;
+}
+
 :root {
 	--brand-navy: #132450;
 	--brand-cyan: #01bdfc;
