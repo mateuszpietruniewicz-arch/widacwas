@@ -1,0 +1,75 @@
+/* WidaćWas brand overrides — logo placement + brand colors (navy / cyan from logo) */
+
+:root {
+	--brand-navy: #132450;
+	--brand-cyan: #01bdfc;
+}
+
+/* Header logo */
+#header h1 {
+	line-height: 3.5em;
+}
+#header .logo-link {
+	display: inline-block;
+	vertical-align: middle;
+}
+#header .logo-full {
+	display: inline-block;
+	height: 2.2em;
+	width: auto;
+	vertical-align: middle;
+}
+#header .logo-icon {
+	display: none;
+	height: 2.1em;
+	width: auto;
+	vertical-align: middle;
+}
+
+@media screen and (max-width: 736px) {
+	#header h1 {
+		line-height: 2.75em;
+	}
+	#header .logo-full {
+		display: none;
+	}
+	#header .logo-icon {
+		display: inline-block;
+	}
+}
+
+/* Footer logo */
+#footer .footer-logo {
+	display: block;
+	width: 200px;
+	height: auto;
+	margin: 0 0 2em 0;
+}
+
+/* Brand color accents */
+.button.special {
+	background-color: var(--brand-cyan);
+	box-shadow: none;
+	color: var(--brand-navy) !important;
+}
+.button.special:hover {
+	background-color: #34cbff;
+}
+.button.special:active {
+	background-color: #00a8e0;
+}
+
+a.special:not(.button):before {
+	border-color: var(--brand-cyan);
+	color: var(--brand-cyan);
+}
+a.special:not(.button):hover:before {
+	background-color: rgba(1, 189, 252, 0.15);
+}
+a.special:not(.button):active:before {
+	background-color: rgba(1, 189, 252, 0.3);
+}
+
+a:hover:not(.button) {
+	color: var(--brand-cyan) !important;
+}
