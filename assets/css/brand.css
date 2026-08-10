@@ -109,6 +109,13 @@
 	margin: 0 0 2em 0;
 }
 
+/* Nota o marce-matce, tuż pod danymi kontaktowymi */
+#footer .parent-brand-note {
+	margin: 0.75em 0 0 0;
+	font-size: 0.9em;
+	color: rgba(255, 255, 255, 0.5);
+}
+
 /* Brand color accents */
 .button.special {
 	background-color: var(--brand-cyan);
@@ -276,6 +283,19 @@ a:hover:not(.button) {
 	.features article:hover, .button:hover {
 		transform: none;
 	}
+}
+
+/* Karta "Stage Dive Media" w #realizacje — stały kadr, żeby zrzut
+   ekranu (2558x1352) nie rozciągał się nienaturalnie w kontenerze karty. */
+#realizacje .features article .image {
+	aspect-ratio: 16 / 9;
+	height: auto;
+	overflow: hidden;
+}
+#realizacje .features article .image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 /* Plan wizualny — sekcja D, punkt 5 (Faza 3): slider "przed/po".
