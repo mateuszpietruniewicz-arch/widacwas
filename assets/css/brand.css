@@ -99,3 +99,75 @@ a:hover:not(.button) {
 	object-fit: cover;
 	border-radius: 50%;
 }
+
+/* Hero trust bar */
+#banner .trust-bar {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5em 1.5em;
+	margin: 1.5em 0 0 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0.8em;
+	opacity: 0.85;
+}
+#banner .trust-bar li {
+	position: relative;
+	padding-left: 1.1em;
+}
+#banner .trust-bar li:before {
+	content: '✓';
+	position: absolute;
+	left: 0;
+	color: var(--brand-cyan);
+}
+
+/* Jak pracujemy — numbered steps */
+.process-steps {
+	list-style: none;
+	counter-reset: step;
+	margin: 0 0 2em 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5em;
+}
+.process-steps li {
+	counter-increment: step;
+	flex: 1 1 calc(50% - 1.5em);
+	min-width: 240px;
+	position: relative;
+	padding-left: 2.75em;
+}
+.process-steps li:before {
+	content: counter(step);
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1.85em;
+	height: 1.85em;
+	line-height: 1.85em;
+	text-align: center;
+	border-radius: 50%;
+	background-color: var(--brand-cyan);
+	color: var(--brand-navy);
+	font-weight: 700;
+}
+@media screen and (max-width: 736px) {
+	.process-steps li {
+		flex: 1 1 100%;
+	}
+}
+
+/* FAQ */
+.faq dt {
+	font-weight: 700;
+	margin: 1.5em 0 0.5em 0;
+}
+.faq dt:first-child {
+	margin-top: 0;
+}
+.faq dd {
+	margin: 0 0 0 0;
+}
