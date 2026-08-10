@@ -36,5 +36,15 @@
 			});
 		}, { threshold: 0.5 });
 		counters.forEach(function (el) { obs.observe(el); });
+
+		// Zabezpieczenie: jeśli obserwator nie odpali się dla któregoś licznika,
+		// wymuszamy docelową wartość — liczba nie może zostać trwale na "0%".
+		window.setTimeout(function () {
+			obs.disconnect();
+			counters.forEach(function (el) {
+				var t = parseFloat(el.getAttribute('data-target'));
+				el.textContent = t.toFixed(1).replace('.', ',') + (el.getAttribute('data-suffix') || '');
+			});
+		}, 2500);
 	});
 })();

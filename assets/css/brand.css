@@ -55,6 +55,60 @@
 	}
 }
 
+/* Przeprojektowanie panelu #menu: pełnoekranowe, ciemne overlay w
+   stylu marki, zamiast małego, płaskiego niebieskiego pudełka z
+   szablonu. Zamykanie klikiem w tło i klawiszem Escape działa już w
+   assets/js/main.js (kliknięcie na #menu poza .inner woła _hide(),
+   keydown 27 też) — tu zmienia się wyłącznie wygląd. */
+#menu {
+	background: rgba(19, 36, 80, 0.94);
+}
+#menu .inner {
+	background: none;
+	border-radius: 0;
+	width: auto;
+	max-width: 26em;
+	padding: 0 1.5em;
+	-moz-transform: translateY(2em);
+	-webkit-transform: translateY(2em);
+	-ms-transform: translateY(2em);
+	transform: translateY(2em);
+	-moz-transition: opacity .4s ease, -moz-transform .4s ease;
+	-webkit-transition: opacity .4s ease, -webkit-transform .4s ease;
+	-ms-transition: opacity .4s ease, -ms-transform .4s ease;
+	transition: opacity .4s ease, transform .4s ease;
+}
+#menu h2 {
+	font-size: 1.6em;
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 2em;
+	opacity: .5;
+}
+#menu .links {
+	margin-bottom: 0;
+}
+#menu .links li {
+	margin: 0 0 1.35em 0;
+}
+#menu .links li a {
+	background: none;
+	font-size: 1.5em;
+	letter-spacing: 0.12em;
+	padding: 0.2em 0;
+	transition: color .2s ease;
+}
+#menu .links li a:hover {
+	background: none;
+	color: var(--brand-cyan);
+}
+#menu .close {
+	transition: transform .2s ease;
+}
+#menu .close:hover {
+	transform: rotate(90deg);
+}
+
 /* Hero background photo with dark overlay for text legibility */
 #banner {
 	background-image: linear-gradient(rgba(19, 36, 80, 0.45), rgba(19, 36, 80, 0.6)), url('../../images/hero.jpg');
