@@ -37,3 +37,11 @@
 		-ms-filter: none;
 		filter: none;
 	}
+
+/* WidaćWas — bez JS nie odpali IntersectionObserver, więc .reveal i .counter
+   muszą być widoczne od razu (plan wizualny sekcja D, punkty 2 i 3). */
+
+	.reveal {
+		opacity: 1;
+		transform: none;
+	}

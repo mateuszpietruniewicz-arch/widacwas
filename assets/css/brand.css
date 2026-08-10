@@ -1,5 +1,60 @@
 /* WidaćWas brand overrides — logo placement + brand colors (navy / cyan from logo) */
 
+/* Plan wizualny — sekcja D, punkt 1: własne, spokojniejsze fale zamiast
+   skośnych przejść z szablonu Solid State. Wyłączamy triangle-SVG
+   pseudo-elementy szablonu (main.css) i dosuwamy sekcje do siebie —
+   nasze <div class="section-wave"> w index.html przejmują przejście. */
+.wrapper:before, .wrapper:after,
+.wrapper.style2:before, .wrapper.style2:after,
+.wrapper.style3:before, .wrapper.style3:after,
+.wrapper.style4:before, .wrapper.style4:after,
+.wrapper.style5:before, .wrapper.style5:after,
+.wrapper.style6:before, .wrapper.style6:after,
+.wrapper.spotlight:before, .wrapper.spotlight:after,
+.wrapper.spotlight.style2:before, .wrapper.spotlight.style2:after,
+.wrapper.spotlight.style3:before, .wrapper.spotlight.style3:after,
+.wrapper.spotlight.style4:before, .wrapper.spotlight.style4:after,
+.wrapper.spotlight.style5:before, .wrapper.spotlight.style5:after,
+.wrapper.spotlight.style6:before, .wrapper.spotlight.style6:after {
+	display: none;
+}
+.wrapper {
+	margin: 0;
+}
+
+.section-wave {
+	position: relative;
+	width: 100%;
+	height: 60px;
+	margin-top: -1px;
+	line-height: 0;
+}
+.section-wave svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.section-wave path {
+	fill: currentColor;
+}
+/* kolor fali = kolor tła sekcji POD spodem (płynne przejście, nie osobny pasek) */
+.section-wave.to-spot1 { color: #0a70a6; }  /* tło #oferta (Szybko) */
+.section-wave.to-spot2 { color: #086799; }  /* tło Uczciwie */
+.section-wave.to-spot3 { color: #065d8b; }  /* tło Kompleksowo */
+.section-wave.to-dark  { color: #2e3141; }  /* tło Co robimy / Jak pracujemy / body */
+.section-wave.to-alt   { color: #353849; }  /* tło Cennik / Realizacje / FAQ */
+
+/* subtelna wariacja — sekcje .alt odbijają falę w poziomie */
+.wrapper.alt .section-wave svg {
+	transform: scaleX(-1);
+}
+
+@media screen and (max-width: 480px) {
+	.section-wave {
+		height: 36px;
+	}
+}
+
 /* Hero background photo with dark overlay for text legibility */
 #banner {
 	background-image: linear-gradient(rgba(19, 36, 80, 0.45), rgba(19, 36, 80, 0.6)), url('../../images/hero.jpg');
@@ -161,13 +216,97 @@ a:hover:not(.button) {
 }
 
 /* FAQ */
+.faq-item:first-child dt {
+	margin-top: 0;
+}
 .faq dt {
 	font-weight: 700;
 	margin: 1.5em 0 0.5em 0;
 }
-.faq dt:first-child {
-	margin-top: 0;
-}
 .faq dd {
 	margin: 0 0 0 0;
+}
+
+/* Plan wizualny — sekcja D, punkt 2: scroll reveal (fade + wjazd przy przewijaniu). */
+.reveal {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+/* stopniowanie dla elementów w siatce (karty, kroki, pytania FAQ) */
+.reveal:nth-child(2) { transition-delay: .08s; }
+.reveal:nth-child(3) { transition-delay: .16s; }
+.reveal:nth-child(4) { transition-delay: .24s; }
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		transition: none !important;
+		opacity: 1 !important;
+		transform: none !important;
+	}
+}
+
+/* Plan wizualny — sekcja D, punkt 4: mikrointerakcje na kartach i przyciskach. */
+.features article {
+	transition: transform .25s ease, box-shadow .25s ease;
+}
+.features article:hover,
+.features article:focus-within {
+	transform: translateY(-6px);
+	box-shadow: 0 12px 24px rgba(0, 0, 0, .25);
+}
+
+.button {
+	transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.button:hover,
+.button:focus-visible {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 14px rgba(0, 0, 0, .2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.features article, .button {
+		transition: none;
+	}
+	.features article:hover, .button:hover {
+		transform: none;
+	}
+}
+
+/* Plan wizualny — sekcja D, punkt 5 (Faza 3): slider "przed/po".
+   Kod gotowy, ale nieaktywny — bez elementów .compare-slider w HTML
+   nic się nie renderuje. Wpiąć w sekcji #realizacje, gdy pojawią się
+   prawdziwe zrzuty "przed"/"po" z pierwszego wdrożenia. */
+.compare-slider {
+	position: relative;
+	max-width: 100%;
+	overflow: hidden;
+	border-radius: 5px;
+}
+.compare-slider img {
+	display: block;
+	width: 100%;
+}
+.compare-after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+}
+.compare-after img {
+	width: var(--compare-width, 100%);
+	max-width: none;
+}
+.compare-range {
+	position: absolute;
+	bottom: 12px;
+	left: 5%;
+	width: 90%;
 }
