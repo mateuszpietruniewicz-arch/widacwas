@@ -1,5 +1,14 @@
 /* WidaćWas brand overrides — logo placement + brand colors (navy / cyan from logo) */
 
+/* Font Raleway Bold (webfont) gubi akcent na literze "ś" przy renderowaniu
+   przez CSS text-transform: uppercase (potwierdzone — "Ć" w tym samym
+   foncie renderuje się poprawnie, więc problem jest specyficzny dla "ś").
+   Nagłówki zawierające "ś" mają tekst wpisany od razu wielkimi literami
+   w HTML i tę klasę, żeby ominąć wadliwą transformację. */
+.fixed-caps {
+	text-transform: none;
+}
+
 /* Plan wizualny — sekcja D, punkt 1: własne, spokojniejsze fale zamiast
    skośnych przejść z szablonu Solid State. Wyłączamy triangle-SVG
    pseudo-elementy szablonu (main.css) i dosuwamy sekcje do siebie —
