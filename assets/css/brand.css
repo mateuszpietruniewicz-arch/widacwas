@@ -293,16 +293,72 @@ a:hover:not(.button) {
 	}
 }
 
-/* FAQ */
-.faq-item:first-child dt {
-	margin-top: 0;
+/* FAQ — akordeon z plakietkami, w stylu numerowanych kroków "Jak pracujemy" */
+.faq {
+	margin: 0 0 1em 0;
 }
-.faq dt {
+.faq-item {
+	border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+.faq-item:first-child {
+	border-top: solid 1px rgba(255, 255, 255, 0.1);
+}
+.faq-question {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	width: 100%;
+	background: none;
+	border: 0;
+	color: inherit;
+	font-family: inherit;
+	text-align: left;
+	cursor: pointer;
+	padding: 1.25em 0.5em;
+	transition: background-color .2s ease;
+}
+.faq-question:hover,
+.faq-question:focus-visible {
+	background-color: rgba(255, 255, 255, 0.03);
+}
+.faq-badge {
+	flex-shrink: 0;
+	width: 2em;
+	height: 2em;
+	line-height: 2em;
+	text-align: center;
+	border-radius: 50%;
+	background-color: var(--brand-cyan);
+	color: var(--brand-navy);
+	font-size: 0.85em;
+}
+.faq-question-text {
+	flex: 1;
 	font-weight: 700;
-	margin: 1.5em 0 0.5em 0;
+	font-size: 1.05em;
 }
-.faq dd {
-	margin: 0 0 0 0;
+.faq-toggle {
+	flex-shrink: 0;
+	color: var(--brand-cyan);
+	transition: transform .25s ease;
+}
+.faq-item.is-open .faq-toggle {
+	transform: rotate(45deg);
+}
+.faq-answer {
+	overflow: hidden;
+	max-height: none;
+	transition: max-height .3s ease;
+}
+.faq-answer p {
+	margin: 0 0 1.25em 0;
+	padding: 0 0.5em 0 3em;
+	opacity: 0.85;
+}
+@media (prefers-reduced-motion: reduce) {
+	.faq-toggle, .faq-answer {
+		transition: none;
+	}
 }
 
 /* Plan wizualny — sekcja D, punkt 2: scroll reveal (fade + wjazd przy przewijaniu). */
