@@ -132,13 +132,13 @@
 }
 #header .logo-full {
 	display: inline-block;
-	height: 2.2em;
+	height: 2.8em;
 	width: auto;
 	vertical-align: middle;
 }
 #header .logo-icon {
 	display: none;
-	height: 2.1em;
+	height: 2.3em;
 	width: auto;
 	vertical-align: middle;
 }
@@ -158,7 +158,7 @@
 /* Footer logo */
 #footer .footer-logo {
 	display: block;
-	width: 200px;
+	width: 260px;
 	height: auto;
 	margin: 0 0 2em 0;
 }

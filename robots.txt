@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mateuszpietruniewicz-arch.github.io/widacwas/sitemap.xml
+Sitemap: https://widacwas.pl/sitemap.xml
